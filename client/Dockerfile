@@ -1,8 +1,7 @@
 FROM node:alpine as builder
 WORKDIR '/app'
 COPY ./package.json /.
-RUN npm cache clean
-RUN npm install
+RUN npm install --cache /tmp/empty-cache
 COPY . .
 RUN npm run build
 
